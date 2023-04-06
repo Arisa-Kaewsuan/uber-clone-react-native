@@ -4,11 +4,15 @@ import React from "react";
 const HomeScreen = () => {
   return (
     <SafeAreaView>
-      <Text> I am the home screen </Text>
+      <Text style={styles.text}> I am the home screen </Text>
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text: {
+    color: "blue",
+  },
+});
