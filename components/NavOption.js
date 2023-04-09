@@ -1,38 +1,45 @@
+import { Icon } from "@rneui/base";
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, Text, View, Image, TouchableOpacity } from "react-native";
+
+const data = [
+  {
+    id: "123",
+    title: "Get a ride",
+    image: "https://Links.papareact.com/3pn",
+    screen: "MapScreen",
+  },
+  {
+    id: "456",
+    title: "Order food",
+    image: "https://Links.papareact.com/28w",
+    screen: "EatsScreen",
+  },
+];
 
 const NavOption = () => {
   return (
-    <View>
-      <FlatList
-        data={[
-          { key: "Devin" },
-          { key: "Dan" },
-          { key: "Dominic" },
-          { key: "Jackson" },
-          { key: "James" },
-          { key: "Joel" },
-          { key: "John" },
-          { key: "Jillian" },
-          { key: "Jimmy" },
-          { key: "Julie" },
-        ]}
-        renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
-      />
-    </View>
+    <FlatList
+      data={data}
+      horizontal
+      className="pl-5  "
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <TouchableOpacity className=" pl-6 pt-2 bg-gray-200 m-2 max-h-60">
+          <View>
+            <Image
+              source={{ uri: item.image }}
+              style={{ width: 120, height: 120, resizeMode: "contain" }}
+            />
+            <Text className="text-lg m-2 font-semibold ">{item.title}</Text>
+            <View className="bg-black w-10 h-10 p-2 rounded-full">
+              <Icon name="arrowright" color="white" type="antdesign" />
+            </View>
+          </View>
+        </TouchableOpacity>
+      )}
+    />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 22,
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-});
 
 export default NavOption;
