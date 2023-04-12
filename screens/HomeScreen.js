@@ -1,8 +1,15 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  Button,
+} from "react-native";
 import React from "react";
 import NavOption from "../components/NavOption";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView className="bg-white h-full ">
       {/*<Text style={styles.text}> My First APP Maple ! </Text>*/}
@@ -12,7 +19,6 @@ const HomeScreen = () => {
           style={{ width: 100, height: 100, resizeMode: "contain" }}
         />
       </View>
-
       <NavOption />
     </SafeAreaView>
   );

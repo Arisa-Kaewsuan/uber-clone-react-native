@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Icon } from "@rneui/base";
 import React from "react";
 import { FlatList, Text, View, Image, TouchableOpacity } from "react-native";
@@ -18,6 +19,8 @@ const data = [
 ];
 
 const NavOption = () => {
+  const navigation = useNavigation();
+
   return (
     <FlatList
       data={data}
@@ -25,7 +28,10 @@ const NavOption = () => {
       className="pl-5  "
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <TouchableOpacity className=" pl-6 pt-2 bg-gray-200 m-2 max-h-60">
+        <TouchableOpacity
+          className=" pl-6 pt-2 bg-gray-200 m-2 max-h-60"
+          onPress={() => navigation.navigate(item.screen)}
+        >
           <View>
             <Image
               source={{ uri: item.image }}
