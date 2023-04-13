@@ -1,11 +1,13 @@
 import { View, Text, Button } from "react-native";
 import React from "react";
+import Map from "../components/Map";
 
 const MapScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>This is MapScreen </Text>
-      <Button
+      <Map />
+
+      {/*<Button
         title="Go to Details... again"
         onPress={() => navigation.push("Map")}
       />
@@ -13,7 +15,7 @@ const MapScreen = ({ navigation }) => {
       <Button
         title="Go back to first screen in stack"
         onPress={() => navigation.popToTop()}
-      />
+  />*/}
     </View>
   );
 };
